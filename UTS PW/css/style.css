@@ -1,0 +1,414 @@
+/* ============================================
+   PORTFOLIO – style.css
+   Font    : Syne (heading) + DM Sans (body)
+   Warna   : Dark Navy + Crimson Red
+   ============================================ */
+
+/* ── CSS VARIABLES ── */
+:root {
+  --bg-main:        #1a1a2e;
+  --bg-card:        #16213e;
+  --bg-accent:      #0f3460;
+  --color-primary:  #e94560;
+  --color-text:     #e0e0e0;
+  --color-muted:    #a0a0b0;
+  --color-heading:  #ffffff;
+  --font-display:   'Syne', sans-serif;
+  --font-body:      'DM Sans', sans-serif;
+}
+
+/* ── RESET ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(26, 26, 46, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(233, 69, 96, 0.15);
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 18px 40px;
+}
+
+nav a {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--color-primary);
+}
+
+/* ============================================
+   HERO SECTION (#home)
+   ============================================ */
+#home {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 80px 120px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+#home::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(233, 69, 96, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Hero – Teks Kiri */
+.hero-content {
+  flex: 1;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 8vw, 96px);
+  font-weight: 700;
+  color: var(--color-heading);
+  line-height: 1.05;
+  margin-bottom: 32px;
+}
+
+.hero-content h1 span {
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+.hero-bio {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-muted);
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero-bio p::before {
+  content: '_';
+  color: var(--color-primary);
+  margin-right: 4px;
+}
+
+/* Hero – Tombol */
+.btn-linkedin {
+  display: inline-block;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  padding: 10px 24px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-linkedin:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* Hero – Gambar Kanan */
+.hero-image {
+  flex: 0 0 420px;
+  max-width: 420px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-image img,
+.hero-image .img-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid rgba(233, 69, 96, 0.2);
+  display: block;
+}
+
+.hero-image .img-placeholder {
+  background: var(--bg-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.hero-image .img-caption {
+  font-size: 10px;
+  color: var(--color-muted);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* ============================================
+   SKILLS / WORKS SECTION (#works)
+   ============================================ */
+#works {
+  background: var(--bg-main);
+  padding: 100px 40px;
+  text-align: center;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-item {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 60px);
+  font-weight: 600;
+  color: var(--color-heading);
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  cursor: default;
+  transition: color 0.2s, letter-spacing 0.3s;
+}
+
+.skill-item:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.skill-item:hover {
+  color: var(--color-primary);
+  letter-spacing: 0.04em;
+}
+
+/* ============================================
+   PORTFOLIO / EXPERIENCE SECTION (#experience)
+   ============================================ */
+#experience {
+  padding: 60px 0;
+}
+
+.portfolio-item {
+  display: flex;
+  align-items: center;
+  padding: 60px 120px;
+  gap: 60px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--bg-main);
+  transition: background 0.3s;
+}
+
+.portfolio-item:nth-child(even) {
+  flex-direction: row-reverse;
+  background: var(--bg-card);
+}
+
+.portfolio-item:hover {
+  background: var(--bg-accent);
+}
+
+/* Portfolio – Gambar */
+.portfolio-img {
+  flex: 0 0 340px;
+}
+
+.portfolio-img img,
+.portfolio-img .img-ph {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  border: 1px solid rgba(233, 69, 96, 0.15);
+}
+
+.portfolio-img .img-ph {
+  background: var(--bg-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.portfolio-img .img-caption {
+  font-size: 10px;
+  color: var(--color-muted);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* Portfolio – Teks */
+.portfolio-text {
+  flex: 1;
+}
+
+.portfolio-text h3 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--color-heading);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.portfolio-text h3 span {
+  display: block;
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+.portfolio-text p {
+  font-size: 12px;
+  color: var(--color-muted);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  max-width: 480px;
+}
+
+/* Portfolio – Tombol */
+.btn-read {
+  display: inline-block;
+  border: 1px solid rgba(233, 69, 96, 0.4);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  padding: 8px 20px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-read:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ============================================
+   CONTACT SECTION (#contact)
+   ============================================ */
+#contact {
+  background: var(--bg-card);
+  padding: 100px 40px;
+  text-align: center;
+  border-top: 1px solid rgba(233, 69, 96, 0.15);
+}
+
+#contact .contact-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+
+#contact h2 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 600;
+  color: var(--color-heading);
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+#contact a.email-link {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(233, 69, 96, 0.4);
+  padding-bottom: 2px;
+  transition: border-color 0.2s;
+}
+
+#contact a.email-link:hover {
+  border-color: var(--color-primary);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  background: var(--bg-main);
+  text-align: center;
+  padding: 24px;
+  font-size: 10px;
+  color: var(--color-muted);
+  letter-spacing: 0.1em;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer span {
+  color: var(--color-primary);
+}
+
+/* ============================================
+   RESPONSIVE – max-width: 900px
+   ============================================ */
+@media (max-width: 900px) {
+  nav {
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 14px 20px;
+  }
+
+  #home {
+    flex-direction: column;
+    padding: 60px 32px;
+    gap: 40px;
+  }
+
+  .hero-image {
+    flex: unset;
+    max-width: 100%;
+  }
+
+  .portfolio-item {
+    flex-direction: column !important;
+    padding: 40px 32px;
+  }
+
+  .portfolio-img {
+    flex: unset;
+    width: 100%;
+  }
+}
